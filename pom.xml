@@ -74,11 +74,13 @@
           <source>${java.version}</source>
           <target>${java.version}</target>
           <annotationProcessorPaths>
-            <path>
-              <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-configuration-processor</artifactId>
-            </path>
-          </annotationProcessorPaths>
+  <path>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+    <version>3.4.6</version> <!-- a mesma versão do spring boot parent -->
+  </path>
+</annotationProcessorPaths>
+
         </configuration>
       </plugin>
 
