@@ -1,22 +1,12 @@
 # Stage 1: build
-FROM openjdk:21-slim AS build
-
-# Instalar Maven
-RUN apt-get update && apt-get install -y maven
-
+FROM maven:3.8.6-eclipse-temurin-17-slim AS build
 WORKDIR /app
-
 COPY samere /app
-
 RUN mvn clean package -DskipTests
 
 # Stage 2: runtime
-FROM openjdk:21-jdk-slim
-
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
-
 COPY --from=build /app/target/*.jar app.jar
-
 EXPOSE 8080
-
 ENTRYPOINT ["java", "-jar", "app.jar"]
