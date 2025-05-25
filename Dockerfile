@@ -1,5 +1,5 @@
 # Stage 1: build
-FROM maven:3.8.6-eclipse-temurin-17-slim AS build
+FROM maven:3.9.9-amazoncorretto-17 AS build
 WORKDIR /app
 COPY samere /app
 RUN mvn clean package -DskipTests
